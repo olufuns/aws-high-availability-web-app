@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AWS Registration Application</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>AWS High Availability Web Application</h1>
+
+        <p class="subtitle">
+            Register below to test our AWS cloud application.
+        </p>
+
+        {% if message %}
+        <div class="success-message">
+            {{ message }}
+        </div>
+        {% endif %}
+
+        <form method="POST">
+
+            <label for="name">Full Name</label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your full name"
+                required
+            >
+
+            <label for="email">Email Address</label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email address"
+                required
+            >
+
+            <label for="phone">Phone Number</label>
+
+            <input
+                type="text"
+                id="phone"
+                name="phone"
+                placeholder="Enter your phone number"
+                required
+            >
+
+            <button type="submit">
+                Register
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
