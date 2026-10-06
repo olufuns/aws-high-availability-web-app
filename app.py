@@ -1,6 +1,15 @@
 from flask import Flask, render_template, request
+import boto3
+import uuid
+from datetime import datetime, timezone
 
 app = Flask(__name__)
+
+# Connect to DynamoDB in the London region
+dynamodb = boto3.resource("dynamodb", region_name="eu-west-2")
+
+# Connect to our table
+table = dynamodb.Table("WebAppRegistrations")
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -13,10 +22,17 @@ def home():
         email = request.form.get("email")
         phone = request.form.get("phone")
 
-        print("New Registration:")
-        print("Name:", name)
-        print("Email:", email)
-        print("Phone:", phone)
+        registration_id = str(uuid.uuid4())
+
+        table.put_item(
+            Item={
+                "registrationId": registration_id,
+                "name": name,
+                "email": email,
+                "phone": phone,
+                "createdAt": datetime.now(timezone.utc).isoformat()
+            }
+        )
 
         message = f"Thank you {name}. Your registration was successful!"
 

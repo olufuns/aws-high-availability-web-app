@@ -1,0 +1,31 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadApplicationArtifactsFromS3",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Resource": "arn:aws:s3:::aws-ha-web-app-olu-2026"
+    },
+    {
+      "Sid": "ReadObjectsFromS3",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": "arn:aws:s3:::aws-ha-web-app-olu-2026/*"
+    },
+    {
+      "Sid": "WriteRegistrationsToDynamoDB",
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:PutItem",
+        "dynamodb:GetItem",
+        "dynamodb:DescribeTable"
+      ],
+      "Resource": "arn:aws:dynamodb:eu-west-2:180437745975:table/WebAppRegistrations"
+    }
+  ]
+}

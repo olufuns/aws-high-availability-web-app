@@ -1,0 +1,32 @@
+{
+    "TableDescription": {
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "registrationId",
+                "AttributeType": "S"
+            }
+        ],
+        "TableName": "WebAppRegistrations",
+        "KeySchema": [
+            {
+                "AttributeName": "registrationId",
+                "KeyType": "HASH"
+            }
+        ],
+        "TableStatus": "CREATING",
+        "CreationDateTime": "2026-10-06T15:10:36.907000+01:00",
+        "ProvisionedThroughput": {
+            "NumberOfDecreasesToday": 0,
+            "ReadCapacityUnits": 0,
+            "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 0,
+        "ItemCount": 0,
+        "TableArn": "arn:aws:dynamodb:eu-west-2:180437745975:table/WebAppRegistrations",
+        "TableId": "eba09f28-2068-46dc-8a86-7b922f30a5ce",
+        "BillingModeSummary": {
+            "BillingMode": "PAY_PER_REQUEST"
+        },
+        "DeletionProtectionEnabled": false
+    }
+}
